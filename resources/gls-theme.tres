@@ -1,0 +1,88 @@
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://b2wmaq01oyh3a"]
+
+[ext_resource type="FontFile" uid="uid://bonbmmw4k6csa" path="res://assets/util/GameBoy.ttf" id="1_ntqv1"]
+[ext_resource type="StyleBox" uid="uid://bp7gl5i24mw52" path="res://resources/white.tres" id="3_u8crc"]
+[ext_resource type="Texture2D" uid="uid://cpn4pn8jfyaqo" path="res://assets/ui/chkbx-chk.png" id="4_em3nq"]
+[ext_resource type="Texture2D" uid="uid://ddd8vps362vmu" path="res://assets/ui/chkbx-clr.png" id="5_grcwp"]
+[ext_resource type="Texture2D" uid="uid://ci6khgkxl2iib" path="res://assets/ui/checked.png" id="6_huvwi"]
+[ext_resource type="Texture2D" uid="uid://cq2msxdosdgxs" path="res://assets/ui/unchecked.png" id="7_itqrv"]
+[ext_resource type="StyleBox" path="res://resources/darkgrn.tres" id="8_l4m11"]
+[ext_resource type="Texture2D" uid="uid://cj65cqafk4f7v" path="res://assets/ui/bubble.png" id="9_jr7xj"]
+[ext_resource type="Texture2D" uid="uid://dqgfbfpxleg51" path="res://assets/ui/bubble_disabled.png" id="10_m1sdf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrlok"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8f1fm"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_5yiah"]
+
+[resource]
+default_font = ExtResource("1_ntqv1")
+Button/colors/font_pressed_color = Color(0.2, 0.172549, 0.313726, 1)
+Button/font_sizes/font_size = 8
+Button/styles/disabled = ExtResource("8_l4m11")
+Button/styles/focus = ExtResource("8_l4m11")
+Button/styles/hover = ExtResource("8_l4m11")
+Button/styles/normal = ExtResource("8_l4m11")
+Button/styles/pressed = ExtResource("3_u8crc")
+CheckBox/font_sizes/font_size = 8
+CheckBox/icons/checked = ExtResource("4_em3nq")
+CheckBox/icons/unchecked = ExtResource("5_grcwp")
+CheckButton/font_sizes/font_size = 8
+CheckButton/icons/checked = ExtResource("6_huvwi")
+CheckButton/icons/unchecked = ExtResource("7_itqrv")
+HBoxContainer/constants/separation = 6
+HScrollBar/styles/grabber = ExtResource("8_l4m11")
+HScrollBar/styles/grabber_highlight = ExtResource("3_u8crc")
+HScrollBar/styles/grabber_pressed = ExtResource("8_l4m11")
+HSlider/constants/center_grabber = 1
+HSlider/constants/grabber_offset = 0
+HSlider/icons/grabber = ExtResource("9_jr7xj")
+HSlider/icons/grabber_disabled = ExtResource("10_m1sdf")
+HSlider/icons/grabber_highlight = ExtResource("9_jr7xj")
+HSlider/styles/grabber_area = ExtResource("3_u8crc")
+HSlider/styles/grabber_area_highlight = ExtResource("3_u8crc")
+HSlider/styles/slider = SubResource("StyleBoxFlat_nrlok")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 8
+Label/styles/normal = SubResource("StyleBoxEmpty_8f1fm")
+MarginContainer/constants/margin_bottom = 6
+MarginContainer/constants/margin_left = 6
+MarginContainer/constants/margin_right = 6
+MarginContainer/constants/margin_top = 6
+PanelContainer/styles/panel = ExtResource("8_l4m11")
+ProgressBar/colors/font_color = Color(0.2, 0.172549, 0.313726, 1)
+ProgressBar/font_sizes/font_size = 10
+ProgressBar/styles/background = ExtResource("3_u8crc")
+ProgressBar/styles/fill = ExtResource("8_l4m11")
+VBoxContainer/constants/separation = 6
+VScrollBar/icons/decrement = SubResource("ImageTexture_5yiah")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_5yiah")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_5yiah")
+VScrollBar/icons/increment = SubResource("ImageTexture_5yiah")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_5yiah")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_5yiah")
+VScrollBar/styles/grabber = ExtResource("8_l4m11")
+VScrollBar/styles/grabber_highlight = ExtResource("3_u8crc")
+VScrollBar/styles/grabber_pressed = ExtResource("8_l4m11")
+VSlider/icons/grabber = ExtResource("9_jr7xj")
+VSlider/icons/grabber_disabled = ExtResource("10_m1sdf")
+VSlider/icons/grabber_highlight = ExtResource("9_jr7xj")
+VSlider/styles/grabber_area = ExtResource("3_u8crc")
