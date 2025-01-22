@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://diuanvppc7wu4"]
+
+[ext_resource type="Texture2D" uid="uid://bb7ubpkfrc51b" path="res://assets/sprites/smdakka.png" id="1_uvoa3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enhic"]
+size = Vector2(2, 4)
+
+[node name="SMDakka" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_enhic")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uvoa3")

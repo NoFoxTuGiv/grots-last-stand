@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl3xv5is24xic"]
+
+[ext_resource type="Texture2D" uid="uid://l1h3r8ad7415" path="res://assets/sprites/WhiteScar.png" id="1_io018"]
+[ext_resource type="Script" uid="uid://cqvwvfnmlc6hu" path="res://scripts/beaky.gd" id="1_vb8bo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vb8bo"]
+size = Vector2(8, 6)
+
+[node name="Beaky" type="Area2D"]
+script = ExtResource("1_vb8bo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vb8bo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_io018")

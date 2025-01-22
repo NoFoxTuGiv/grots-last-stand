@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpwfibbgxcfjv"]
+
+[ext_resource type="Script" uid="uid://bekaof86pydvy" path="res://scripts/grotdakka.gd" id="1_exfmc"]
+[ext_resource type="Texture2D" uid="uid://bhypb5u2x3y5y" path="res://assets/sprites/grotdakka.png" id="1_w8nrq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exfmc"]
+size = Vector2(2, 3)
+
+[node name="GrotDakka" type="Area2D"]
+script = ExtResource("1_exfmc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_exfmc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w8nrq")
