@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://dlgpxwx345iik"]
 
 [ext_resource type="Theme" uid="uid://b2wmaq01oyh3a" path="res://resources/gls-theme.tres" id="1_ayf0x"]
-[ext_resource type="Script" uid="uid://bvdkpth8lngwj" path="res://scripts/game.gd" id="1_fwe7e"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_fwe7e"]
 [ext_resource type="Script" uid="uid://b38bnn02ac7mu" path="res://scripts/grot.gd" id="2_11jcx"]
 [ext_resource type="Texture2D" uid="uid://cygj6j8i4j3ys" path="res://assets/sprites/Grot.png" id="2_31k3w"]
 [ext_resource type="Texture2D" uid="uid://2mdkl6w6job4" path="res://assets/ui/health.png" id="3_p57ef"]
-[ext_resource type="Script" uid="uid://bbyp7y107rufj" path="res://scripts/ui/pause_menu.gd" id="4_7d4y8"]
+[ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="4_7d4y8"]
 [ext_resource type="Script" uid="uid://dkjq71kx460q4" path="res://scripts/enemy_grid.gd" id="4_u5sy4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dlplv"]
