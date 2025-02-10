@@ -4,17 +4,14 @@ extends Control
 
 func resume():
 	self.hide()
-	#z_index = -999
 	get_tree().paused = false
 
 func pause():
 	self.show()
-	#z_index = 999
 	get_tree().paused = true
 
 func restart():
 	self.hide()
-	#z_index = -999
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ddd8vps362vmu" path="res://assets/ui/chkbx-clr.png" id="5_grcwp"]
 [ext_resource type="Texture2D" uid="uid://ci6khgkxl2iib" path="res://assets/ui/checked.png" id="6_huvwi"]
 [ext_resource type="Texture2D" uid="uid://cq2msxdosdgxs" path="res://assets/ui/unchecked.png" id="7_itqrv"]
-[ext_resource type="StyleBox" path="res://resources/darkgrn.tres" id="8_l4m11"]
+[ext_resource type="StyleBox" uid="uid://bwaxrtfflo2mn" path="res://resources/darkgrn.tres" id="8_l4m11"]
 [ext_resource type="Texture2D" uid="uid://cj65cqafk4f7v" path="res://assets/ui/bubble.png" id="9_jr7xj"]
 [ext_resource type="Texture2D" uid="uid://dqgfbfpxleg51" path="res://assets/ui/bubble_disabled.png" id="10_m1sdf"]
 

@@ -6,6 +6,7 @@ extends Area2D
 signal hit_player(player: Node)
 
 func _ready() -> void:
+	add_to_group("Beaky_Dakka")
 	connect("body_entered", Callable(self, "_on_body_entered"))
 
 func _physics_process(delta: float) -> void:

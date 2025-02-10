@@ -15,10 +15,8 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 
 func _on_area_entered(area: Node) -> void:
-	print("Collision detected with:", area)
+	#print("Collision detected with:", area)
 	if area.is_in_group("Beakies"):
-		print("Beaky hit:", area.name)
 		emit_signal("hit_enemy", area)
-		print("Signal 'hit_enemy' emitted for: ", area.name)
 		area.queue_free()
 		queue_free()

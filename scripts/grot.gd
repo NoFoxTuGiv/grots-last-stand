@@ -34,9 +34,9 @@ func _shoot() -> void:
 		var enemy_grid = get_parent().get_node("EnemyGrid")
 		if enemy_grid:
 			shot.connect("hit_enemy", Callable(enemy_grid, "_on_enemy_removed"))
-			print("signal 'hit_enemy' connected to enemy_grid")
+			#print("signal 'hit_enemy' connected to enemy_grid")
 
-		print("Signal 'hit_enemy' connected:", shot.is_connected("hit_enemy", Callable(enemy_grid, "_on_enemy_removed")))
+		#print("Signal 'hit_enemy' connected:", shot.is_connected("hit_enemy", Callable(enemy_grid, "_on_enemy_removed")))
 
 		shot.connect("tree_exited", Callable(self, "_on_bullet_removed"))
 
