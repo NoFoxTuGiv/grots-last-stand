@@ -29,6 +29,11 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var move_speed = ((INIT_MOVE_SPEED + (clears * CLEAR_INCREMENT) + kills) * delta)
 	var beakies = get_tree().get_nodes_in_group("Beakies")
+
+	if beakies.size() == 0:
+		clears += 1
+		kills = 0
+		_generate_grid()
 	for beaky in beakies:
 		beaky.move(move_speed)
 
