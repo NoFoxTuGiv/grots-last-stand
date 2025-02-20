@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dlgpxwx345iik"]
+[gd_scene load_steps=12 format=3 uid="uid://dlgpxwx345iik"]
 
 [ext_resource type="Theme" uid="uid://b2wmaq01oyh3a" path="res://resources/gls-theme.tres" id="1_ayf0x"]
 [ext_resource type="Script" uid="uid://bvdkpth8lngwj" path="res://scripts/game.gd" id="1_fwe7e"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cygj6j8i4j3ys" path="res://assets/sprites/Grot.png" id="2_31k3w"]
 [ext_resource type="Texture2D" uid="uid://2mdkl6w6job4" path="res://assets/ui/health.png" id="3_p57ef"]
 [ext_resource type="Script" uid="uid://bbyp7y107rufj" path="res://scripts/ui/pause_menu.gd" id="4_7d4y8"]
-[ext_resource type="Script" uid="uid://dkjq71kx460q4" path="res://scripts/enemy_grid.gd" id="4_u5sy4"]
 [ext_resource type="Script" uid="uid://m5hr17x0ot86" path="res://scripts/ui/game_over.gd" id="8_gee14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dlplv"]
@@ -58,52 +57,6 @@ offset_bottom = 144.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.27451, 0.529412, 0.560784, 1)
-
-[node name="Camera" type="Camera2D" parent="."]
-position = Vector2(80, 72)
-
-[node name="Points" type="Label" parent="Camera"]
-offset_left = -78.0
-offset_top = -70.0
-offset_right = -38.0
-offset_bottom = -60.0
-theme = ExtResource("1_ayf0x")
-text = "0 pts"
-
-[node name="Healthbar" type="Node2D" parent="Camera"]
-position = Vector2(65, -64)
-
-[node name="Health0" type="Sprite2D" parent="Camera/Healthbar"]
-position = Vector2(8, 0)
-texture = ExtResource("3_p57ef")
-
-[node name="Health1" type="Sprite2D" parent="Camera/Healthbar"]
-texture = ExtResource("3_p57ef")
-
-[node name="Health2" type="Sprite2D" parent="Camera/Healthbar"]
-position = Vector2(-8, 0)
-texture = ExtResource("3_p57ef")
-
-[node name="EnemyGrid" type="Node2D" parent="."]
-script = ExtResource("4_u5sy4")
-
-[node name="Grot" type="CharacterBody2D" parent="."]
-position = Vector2(80, 129)
-script = ExtResource("2_11jcx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Grot"]
-shape = SubResource("RectangleShape2D_dlplv")
-
-[node name="Sprite2D" type="Sprite2D" parent="Grot"]
-texture = ExtResource("2_31k3w")
-hframes = 2
-frame = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Grot"]
-root_node = NodePath("../..")
-libraries = {
-&"": SubResource("AnimationLibrary_jjili")
-}
 
 [node name="PauseMenu" type="Control" parent="."]
 process_mode = 3
@@ -181,9 +134,55 @@ text = "RESTART"
 layout_mode = 2
 text = "MAIN MENU"
 
-[connection signal="game_over" from="EnemyGrid" to="GameOver" method="_game_over"]
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(80, 72)
+
+[node name="Points" type="Label" parent="Camera"]
+z_index = 999
+offset_left = -78.0
+offset_top = -70.0
+offset_right = -38.0
+offset_bottom = -60.0
+theme = ExtResource("1_ayf0x")
+text = "0 pts"
+
+[node name="Healthbar" type="Node2D" parent="Camera"]
+z_index = 999
+position = Vector2(65, -64)
+
+[node name="Health0" type="Sprite2D" parent="Camera/Healthbar"]
+position = Vector2(8, 0)
+texture = ExtResource("3_p57ef")
+
+[node name="Health1" type="Sprite2D" parent="Camera/Healthbar"]
+texture = ExtResource("3_p57ef")
+
+[node name="Health2" type="Sprite2D" parent="Camera/Healthbar"]
+position = Vector2(-8, 0)
+texture = ExtResource("3_p57ef")
+
+[node name="Grot" type="CharacterBody2D" parent="."]
+z_index = 999
+position = Vector2(80, 129)
+script = ExtResource("2_11jcx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grot"]
+shape = SubResource("RectangleShape2D_dlplv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Grot"]
+texture = ExtResource("2_31k3w")
+hframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Grot"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_jjili")
+}
+
 [connection signal="pressed" from="PauseMenu/CenterContainer/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/CenterContainer/VBoxContainer/Main Menu" to="PauseMenu" method="_on_main_menu_pressed"]
 [connection signal="pressed" from="PauseMenu/CenterContainer/VBoxContainer/Quit" to="PauseMenu" method="_on_quit_pressed"]
 [connection signal="pressed" from="GameOver/CenterContainer/VBoxContainer/Restart" to="GameOver" method="_on_restart_pressed"]
 [connection signal="pressed" from="GameOver/CenterContainer/VBoxContainer/Main Menu" to="GameOver" method="_on_main_menu_pressed"]
+[connection signal="beaky_killed" from="Grot" to="." method="_on_beaky_killed"]

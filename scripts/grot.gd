@@ -6,6 +6,7 @@ var is_shooting: bool = false
 
 const SPEED = 60.0
 
+signal beaky_killed
 
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_axis("move_l", "move_r")
@@ -27,18 +28,17 @@ func _animate() -> void:
 func _shoot() -> void:
 	if Input.is_action_just_pressed("shoot") and not is_shooting:
 		var shot = dakka.instantiate()
-		shot.global_position = self.global_position
-		shot.global_position.y -= 12
+		shot.global_position = self.global_position    
+		shot.global_position.x -= 5
+		shot.global_position.y -= 15
 		get_parent().add_child(shot)
 		is_shooting = true
-		var enemy_grid = get_parent().get_node("EnemyGrid")
-		if enemy_grid:
-			shot.connect("hit_enemy", Callable(enemy_grid, "_on_enemy_removed"))
-			#print("signal 'hit_enemy' connected to enemy_grid")
-
-		#print("Signal 'hit_enemy' connected:", shot.is_connected("hit_enemy", Callable(enemy_grid, "_on_enemy_removed")))
-
-		shot.connect("tree_exited", Callable(self, "_on_bullet_removed"))
+		shot.connect("hit_enemy", _on_enemy_removed)
+		shot.connect("tree_exited", _on_bullet_removed)
 
 func _on_bullet_removed() -> void:
 	is_shooting = false
+
+func _on_enemy_removed(beaky) -> void:
+	print(beaky.name, " was killed.")
+	emit_signal("beaky_killed")

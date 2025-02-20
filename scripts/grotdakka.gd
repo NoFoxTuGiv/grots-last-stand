@@ -1,3 +1,4 @@
+class_name GrotDakka
 extends Area2D
 
 const SPEED: float = 200.0

@@ -26,8 +26,6 @@ func _physics_process(delta: float) -> void:
 	var beakies = get_tree().get_nodes_in_group("Beakies")
 
 	var live_shot_count = get_tree().get_nodes_in_group("live_shots").size()
-	# Now you have the count of live shots; do something with it.
-	# For example, print the count or update a UI element.
 	print("Live shots: ", live_shot_count)
 
 	# TODO: Shoot the player
@@ -55,6 +53,7 @@ func _generate_grid():
 	for i in range(ROWS):
 		for j in range(COLS):
 			var beaky = BEAKY.instantiate()
+			beaky.name = "Beaky" + str(i) + "-" + str(j)
 			beaky.position = Vector2(j * (10 + GUTTER), i * (13 + GUTTER))
 			beaky.connect("hit_wall", Callable(self, "_on_hit_wall"))
 			beaky.connect("reached_bottom", Callable(self, "_on_reached_bottom"))

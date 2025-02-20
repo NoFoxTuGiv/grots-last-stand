@@ -1,7 +1,5 @@
 extends Control
 
-@onready var enemy_grid: Node2D = $"../EnemyGrid"
-
 func _game_over() -> void:
 	print("Game over signal received")
 	self.show()
