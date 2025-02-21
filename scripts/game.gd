@@ -9,12 +9,14 @@ const COLS: int = 8
 const ROWS: int = 4
 const INIT_MOVE_SPEED: float = 10.0
 const CLEAR_INCREMENT: float = 10.0
+const INIT_SHOT_CD: float = 1.2
 var kills: int = 0
 @export var clears: int = 0
 var direction: int = 1 # 1 for right, -1 for left
 var drop_distance: int = 10
-var score = 0
-@export var edge_margin = 5
+var score: int = 0
+@export var shot_cd: float = INIT_SHOT_CD
+@export var edge_margin: int = 5
 
 var reverse_cooldown: float = 0.5
 var last_reverse_time: float = 0.0
@@ -40,8 +42,11 @@ func _physics_process(delta: float) -> void:
 		beaky.move(move_speed)
 
 	for beaky in beakies:
-		if live_shots.size() < (4 + clears):
-			if (randi() % 40) < 2:
+		shot_cd -= delta
+		#if live_shots.size() < min(min(4 + clears, 10), beakies.size()):
+		if live_shots.size() < (min(4 + clears, 10)):
+			if (randi() % (2000 / (kills+1))) < 2 and shot_cd < 0:
+				shot_cd = INIT_SHOT_CD
 				beaky.shoot()
 				break
 
@@ -59,7 +64,6 @@ func _generate_grid():
 
 func _on_beaky_killed() -> void:
 	kills += 1
-	score += 1
 
 func _game_over():
 	game_over_menu.show()

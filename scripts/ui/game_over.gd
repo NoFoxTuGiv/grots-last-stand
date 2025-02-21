@@ -1,10 +1,5 @@
 extends Control
 
-func _game_over() -> void:
-	print("Game over signal received")
-	self.show()
-	get_tree().paused = true
-
 func _on_restart_pressed() -> void:
 	self.hide()
 	get_tree().paused = false

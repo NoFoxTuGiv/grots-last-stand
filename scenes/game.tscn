@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlgpxwx345iik"]
+[gd_scene load_steps=14 format=3 uid="uid://dlgpxwx345iik"]
 
 [ext_resource type="Theme" uid="uid://b2wmaq01oyh3a" path="res://resources/gls-theme.tres" id="1_ayf0x"]
 [ext_resource type="Script" uid="uid://bvdkpth8lngwj" path="res://scripts/game.gd" id="1_fwe7e"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cygj6j8i4j3ys" path="res://assets/sprites/Grot.png" id="2_31k3w"]
 [ext_resource type="Texture2D" uid="uid://2mdkl6w6job4" path="res://assets/ui/health.png" id="3_p57ef"]
 [ext_resource type="Script" uid="uid://bbyp7y107rufj" path="res://scripts/ui/pause_menu.gd" id="4_7d4y8"]
+[ext_resource type="Script" uid="uid://dvbr6spuvu0p5" path="res://scripts/ui/score.gd" id="5_gee14"]
+[ext_resource type="Script" uid="uid://b7chk6rgfw6mp" path="res://scripts/ui/healthbar.gd" id="6_0tnpc"]
 [ext_resource type="Script" uid="uid://m5hr17x0ot86" path="res://scripts/ui/game_over.gd" id="8_gee14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dlplv"]
@@ -61,6 +63,7 @@ color = Color(0.27451, 0.529412, 0.560784, 1)
 [node name="PauseMenu" type="Control" parent="."]
 process_mode = 3
 visible = false
+z_index = 1000
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -99,6 +102,7 @@ text = "Quit"
 [node name="GameOver" type="Control" parent="."]
 process_mode = 3
 visible = false
+z_index = 1000
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -145,10 +149,12 @@ offset_right = -38.0
 offset_bottom = -60.0
 theme = ExtResource("1_ayf0x")
 text = "0 pts"
+script = ExtResource("5_gee14")
 
 [node name="Healthbar" type="Node2D" parent="Camera"]
 z_index = 999
 position = Vector2(65, -64)
+script = ExtResource("6_0tnpc")
 
 [node name="Health0" type="Sprite2D" parent="Camera/Healthbar"]
 position = Vector2(8, 0)
@@ -186,3 +192,4 @@ libraries = {
 [connection signal="pressed" from="GameOver/CenterContainer/VBoxContainer/Restart" to="GameOver" method="_on_restart_pressed"]
 [connection signal="pressed" from="GameOver/CenterContainer/VBoxContainer/Main Menu" to="GameOver" method="_on_main_menu_pressed"]
 [connection signal="beaky_killed" from="Grot" to="." method="_on_beaky_killed"]
+[connection signal="beaky_killed" from="Grot" to="Camera/Points" method="_on_beaky_killed"]
