@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8rrx2obu3i4x"]
+[gd_scene load_steps=5 format=3 uid="uid://b8rrx2obu3i4x"]
 
 [ext_resource type="Script" uid="uid://bqtk1uiblj8oi" path="res://scripts/ui/main_menu.gd" id="1_ofxqd"]
 [ext_resource type="Theme" uid="uid://b2wmaq01oyh3a" path="res://resources/gls-theme.tres" id="1_vmxqh"]
 [ext_resource type="FontFile" uid="uid://bonbmmw4k6csa" path="res://assets/util/GameBoy.ttf" id="2_swlua"]
+[ext_resource type="Script" uid="uid://dd7w3lecbg33k" path="res://scripts/ui/hiscore.gd" id="4_m1kxf"]
 
 [node name="MainMenuScene" type="Control"]
 layout_mode = 3
@@ -69,6 +70,18 @@ texture_filter = 1
 layout_mode = 2
 theme = ExtResource("1_vmxqh")
 text = "Quit"
+
+[node name="Separator5" type="Control" parent="MainMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HiScore" type="Label" parent="MainMenu/MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme = ExtResource("1_vmxqh")
+theme_override_fonts/font = ExtResource("2_swlua")
+theme_override_font_sizes/font_size = 8
+text = "Hiscore: 0 Pts"
+script = ExtResource("4_m1kxf")
 
 [node name="MainSettings" type="PanelContainer" parent="."]
 visible = false
@@ -156,38 +169,32 @@ texture_filter = 1
 layout_mode = 2
 theme_override_constants/separation = 3
 
+[node name="Separator9" type="Control" parent="ResolutionSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="Label" type="Label" parent="ResolutionSettings/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Resolution"
 horizontal_alignment = 1
 
+[node name="Separator10" type="Control" parent="ResolutionSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="160 x 144" type="Button" parent="ResolutionSettings/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "160 x 144"
-
-[node name="Separator9" type="Control" parent="ResolutionSettings/MarginContainer/VBoxContainer"]
-layout_mode = 2
 
 [node name="480 x 432" type="Button" parent="ResolutionSettings/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "480 x 432"
 
-[node name="Separator10" type="Control" parent="ResolutionSettings/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
 [node name="800 x 720" type="Button" parent="ResolutionSettings/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "800 x 720"
 
-[node name="Separator11" type="Control" parent="ResolutionSettings/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
 [node name="1120 x 1008" type="Button" parent="ResolutionSettings/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "1120 x 1008"
-
-[node name="Separator12" type="Control" parent="ResolutionSettings/MarginContainer/VBoxContainer"]
-layout_mode = 2
 
 [node name="1600 x 1440" type="Button" parent="ResolutionSettings/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -197,12 +204,15 @@ text = "1600 x 1440"
 layout_mode = 2
 text = "fullscreen"
 
-[node name="Separator8" type="Control" parent="ResolutionSettings/MarginContainer/VBoxContainer"]
+[node name="Separator11" type="Control" parent="ResolutionSettings/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="ResBack" type="Button" parent="ResolutionSettings/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back"
+
+[node name="Separator12" type="Control" parent="ResolutionSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="pressed" from="MainMenu/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]

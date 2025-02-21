@@ -7,6 +7,7 @@ var health = 3
 signal game_over
 
 func player_hit(_body) -> void:
+	%Explosion.play()
 	health -= 1
 	match health:
 		2: health_2.hide()

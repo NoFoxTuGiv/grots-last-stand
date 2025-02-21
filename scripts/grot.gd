@@ -35,10 +35,11 @@ func _shoot() -> void:
 		is_shooting = true
 		shot.connect("hit_enemy", _on_enemy_removed)
 		shot.connect("tree_exited", _on_bullet_removed)
-
+		%Shoot.play()
 func _on_bullet_removed() -> void:
 	is_shooting = false
 
 func _on_enemy_removed(beaky) -> void:
 	print(beaky.name, " was killed.")
 	emit_signal("beaky_killed")
+	%Invaderkilled.play()

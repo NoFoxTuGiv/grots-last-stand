@@ -18,6 +18,7 @@ var shot_cd: float = INIT_SHOT_CD
 var edge_margin: int = 5
 var kills: int = 0
 @export var clears: int = 0
+var high_score: int
 
 var reverse_cooldown: float = 0.5
 var last_reverse_time: float = 0.0
@@ -67,11 +68,22 @@ func _generate_grid():
 
 func _on_beaky_killed() -> void:
 	kills += 1
+	score += 10
+	if score > high_score:
+		high_score = score
 
 func _on_beaky_shoot(shot):
 	if healthbar:
 		shot.connect("hit_player", healthbar.player_hit)
 
 func _game_over():
+	_save_highscore()
 	game_over_menu.show()
 	get_tree().paused = true
+
+func _save_highscore() -> void:
+	var save_dict = {
+		"high_score": high_score
+	}
+	var save_file = FileAccess.open("user://hiscore.save", FileAccess.WRITE)
+	save_file.store_line(JSON.stringify(save_dict))

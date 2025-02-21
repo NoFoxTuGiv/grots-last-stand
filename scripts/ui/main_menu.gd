@@ -46,9 +46,9 @@ func _on_resolution_pressed() -> void:
 
 func _on_full_screen_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		DisplayServer.window_set_mode(3)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
-		DisplayServer.window_set_mode(0)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _on__x_1440_pressed() -> void:
 	DisplayServer.window_set_size(Vector2(1600, 1440))

@@ -31,9 +31,14 @@ desktop.ini         # Windows system file
 
 # Executables (Upload manually @ Release)
 *.exe               # Executables
+.exe
 
 # Development artifacts
 /gimp/
 /blender/
 /aseprite/
 /music-wip/
+
+# Manual additions because .gitignore loves to ignore my shit
+Grot's Last Stand.console.exe
+Grot's Last Stand.exe

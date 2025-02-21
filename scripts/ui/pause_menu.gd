@@ -1,6 +1,7 @@
 extends Control
 
 @onready var resumeBtn: Button = $CenterContainer/VBoxContainer/Resume
+@onready var game_over: Control = $"../GameOver"
 
 func resume():
 	self.hide()
@@ -16,7 +17,9 @@ func restart():
 	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 
 func testEsc():
-	if Input.is_action_just_pressed("pause") and !get_tree().paused:
+	if game_over.is_visible_in_tree():
+		pass
+	elif Input.is_action_just_pressed("pause") and !get_tree().paused:
 		resumeBtn.grab_focus()
 		pause()
 	elif Input.is_action_just_pressed("pause") and get_tree().paused:

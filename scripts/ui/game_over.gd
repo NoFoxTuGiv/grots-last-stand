@@ -1,5 +1,10 @@
 extends Control
 
+@onready var restart: Button = $CenterContainer/VBoxContainer/Restart
+
+func _ready() -> void:
+	restart.grab_focus()
+
 func _on_restart_pressed() -> void:
 	self.hide()
 	get_tree().paused = false
