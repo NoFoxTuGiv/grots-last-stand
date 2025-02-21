@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var pause_menu: Control = $PauseMenu
 @onready var game_over_menu: Control = $GameOver
+@onready var healthbar: Node2D = $Camera/Healthbar
 
 const BEAKY: PackedScene = preload("res://scenes/beaky.tscn")
 const GUTTER: int = 2
@@ -45,6 +46,7 @@ func _physics_process(delta: float) -> void:
 		shot_cd -= delta
 		#if live_shots.size() < min(min(4 + clears, 10), beakies.size()):
 		if live_shots.size() < (min(4 + clears, 10)):
+			@warning_ignore("integer_division")
 			if (randi() % (2000 / (kills+1))) < 2 and shot_cd < 0:
 				shot_cd = INIT_SHOT_CD
 				beaky.shoot()
@@ -59,11 +61,16 @@ func _generate_grid():
 			beaky.position.x += 5
 			beaky.position.y += 5
 			beaky.connect("game_over", _game_over)
+			beaky.connect("beaky_shoot", _on_beaky_shoot)
 			add_child(beaky)
 	position = Vector2(edge_margin, 16)
 
 func _on_beaky_killed() -> void:
 	kills += 1
+
+func _on_beaky_shoot(shot):
+	if healthbar:
+		shot.connect("hit_player", healthbar.player_hit)
 
 func _game_over():
 	game_over_menu.show()

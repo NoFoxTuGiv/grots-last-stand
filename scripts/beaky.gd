@@ -7,6 +7,7 @@ var direction = 1 # 1 for right, -1 for left
 var last_reverse_time: float = 0.0
 
 signal game_over
+signal beaky_shoot
 
 func _ready() -> void:
 	add_to_group("Beakies")
@@ -40,7 +41,7 @@ func shoot() -> void:
 		shot.position = self.position
 		shot.position.y += 5
 		shot.add_to_group("Beaky_Dakka")
-		# TODO: Add healthbar logic when player is hit.
+		emit_signal("beaky_shoot", shot)
 		get_parent().add_child(shot)
 
 func move(speed) -> void:

@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bbyp7y107rufj" path="res://scripts/ui/pause_menu.gd" id="4_7d4y8"]
 [ext_resource type="Script" uid="uid://dvbr6spuvu0p5" path="res://scripts/ui/score.gd" id="5_gee14"]
 [ext_resource type="Script" uid="uid://b7chk6rgfw6mp" path="res://scripts/ui/healthbar.gd" id="6_0tnpc"]
-[ext_resource type="Script" uid="uid://m5hr17x0ot86" path="res://scripts/ui/game_over.gd" id="8_gee14"]
+[ext_resource type="Script" uid="uid://cab2ak8qj2k81" path="res://scripts/ui/game_over.gd" id="8_gee14"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dlplv"]
 size = Vector2(16, 18)
@@ -191,5 +191,6 @@ libraries = {
 [connection signal="pressed" from="PauseMenu/CenterContainer/VBoxContainer/Quit" to="PauseMenu" method="_on_quit_pressed"]
 [connection signal="pressed" from="GameOver/CenterContainer/VBoxContainer/Restart" to="GameOver" method="_on_restart_pressed"]
 [connection signal="pressed" from="GameOver/CenterContainer/VBoxContainer/Main Menu" to="GameOver" method="_on_main_menu_pressed"]
+[connection signal="game_over" from="Camera/Healthbar" to="." method="_game_over"]
 [connection signal="beaky_killed" from="Grot" to="." method="_on_beaky_killed"]
 [connection signal="beaky_killed" from="Grot" to="Camera/Points" method="_on_beaky_killed"]
