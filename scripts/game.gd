@@ -10,13 +10,13 @@ const ROWS: int = 4
 const INIT_MOVE_SPEED: float = 10.0
 const CLEAR_INCREMENT: float = 10.0
 const INIT_SHOT_CD: float = 1.2
-var kills: int = 0
-@export var clears: int = 0
 var direction: int = 1 # 1 for right, -1 for left
 var drop_distance: int = 10
 var score: int = 0
-@export var shot_cd: float = INIT_SHOT_CD
-@export var edge_margin: int = 5
+var shot_cd: float = INIT_SHOT_CD
+var edge_margin: int = 5
+var kills: int = 0
+@export var clears: int = 0
 
 var reverse_cooldown: float = 0.5
 var last_reverse_time: float = 0.0

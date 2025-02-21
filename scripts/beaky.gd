@@ -40,6 +40,7 @@ func shoot() -> void:
 		shot.position = self.position
 		shot.position.y += 5
 		shot.add_to_group("Beaky_Dakka")
+		# TODO: Add healthbar logic when player is hit.
 		get_parent().add_child(shot)
 
 func move(speed) -> void:
