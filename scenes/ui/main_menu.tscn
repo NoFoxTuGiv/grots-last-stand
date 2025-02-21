@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8rrx2obu3i4x"]
+[gd_scene load_steps=6 format=3 uid="uid://b8rrx2obu3i4x"]
 
 [ext_resource type="Script" uid="uid://bqtk1uiblj8oi" path="res://scripts/ui/main_menu.gd" id="1_ofxqd"]
 [ext_resource type="Theme" uid="uid://b2wmaq01oyh3a" path="res://resources/gls-theme.tres" id="1_vmxqh"]
 [ext_resource type="FontFile" uid="uid://bonbmmw4k6csa" path="res://assets/util/GameBoy.ttf" id="2_swlua"]
 [ext_resource type="Script" uid="uid://dd7w3lecbg33k" path="res://scripts/ui/hiscore.gd" id="4_m1kxf"]
+[ext_resource type="Script" uid="uid://dv41e8jmxec1n" path="res://scripts/ui/volume.gd" id="5_x2yvf"]
 
 [node name="MainMenuScene" type="Control"]
 layout_mode = 3
@@ -15,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_ofxqd")
 
 [node name="MainMenu" type="PanelContainer" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -84,7 +86,6 @@ text = "Hiscore: 0 Pts"
 script = ExtResource("4_m1kxf")
 
 [node name="MainSettings" type="PanelContainer" parent="."]
-visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -102,9 +103,18 @@ alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="MainSettings/MarginContainer"]
 texture_filter = 1
 layout_mode = 2
-theme_override_constants/separation = 3
+theme_override_constants/separation = 1
 
 [node name="Separator5" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator24" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator25" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator26" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Settings" type="Label" parent="MainSettings/MarginContainer/VBoxContainer"]
@@ -114,12 +124,25 @@ text = "SETTINGS"
 [node name="Separator9" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
+[node name="Separator20" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator21" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator22" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator23" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="Separator7" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Volume" type="Label" parent="MainSettings/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Volume: 100"
+script = ExtResource("5_x2yvf")
 
 [node name="VolSlider" type="HSlider" parent="MainSettings/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -141,12 +164,42 @@ text = "RESOLUTION"
 [node name="Separator6" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Separator8" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+[node name="Separator10" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator11" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator12" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator13" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator14" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator15" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator16" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator17" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator18" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Separator19" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Back" type="Button" parent="MainSettings/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Back"
+
+[node name="Separator8" type="Control" parent="MainSettings/MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="ResolutionSettings" type="PanelContainer" parent="."]
 visible = false
