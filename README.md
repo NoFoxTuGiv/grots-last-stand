@@ -1,6 +1,6 @@
 # Grot's Last Stand
 
-A Warhammer 40k Space Invaders clone built in GoDot that attempts to emulate the looks and feel of a class GameBoy game. Fend off waves of White Scar Marines and survive as long as you can, racking up a high score.
+A Warhammer 40k Space Invaders clone built in GoDot that attempts to emulate the looks and feel of a classic GameBoy game. Fend off waves of White Scar Marines and survive as long as you can, racking up a high score.
 
 ![Screenshot](/assets/MockUp.png)
 
